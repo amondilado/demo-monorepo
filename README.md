@@ -1,6 +1,10 @@
+# Project setup
+
+$ npm install
+
 # Lerna setup & init
 
-`npx lerna init --dryRun --exact`
+$ npx lerna init --dryRun --exact
 --dryRun: see the actual options before applied
 --exact: set exact versions to packages
 
@@ -18,20 +22,31 @@ https://yarnpkg.com/configuration/yarnrc/#nmHoistingLimits
 The packages key is optional
 
 Then run
-`npm install`
+$ npm install
 
 Add packages
-`npx lerna create package_1`
-`npx lerna create package_2`
+$ npx lerna create package_1
+$ npx lerna create package_2
 
 ## Link package dependencies
 
-Via package manager:
-npm install <dependency> -w <package1> -w <package2>
+Workspaces:
 
-Manually:
-Go to package_2 package.json file
-add in dependencies add local path association to package_1
+```
+// package_2/package.json
+{
+  ...,
+  "dependencies": {
+    // workspace
+    "package_1": "*"
+  }
+}
+```
+
+Via package manager:
+$ npm install <dependency> -w <package1> -w <package2>
+
+Local path:
 
 ```
 // package_2/package.json
@@ -44,16 +59,25 @@ add in dependencies add local path association to package_1
 ```
 
 Go back to root and run
-`npm install`
+$ npm install
 
 ### Commands
 
+Repair after migration - Remove legacy options
+$ npx lerna repair
+
+List packages
+$ npx lerna list
+
 Build monorepo
-`npx lerna run build`
+$ npx lerna run build
 
 Build package only
-`npx lerna run build --scope=<package>` or `--scope <package>` -> >=v7 syntax
+$ npx lerna run build --scope=<package>`or`--scope <package> // -> >=v7 syntax
+
+Clean packages node_modules
+$ npx lerna clean
 
 # Nx
 
-`npm nx graph`
+$ npm nx graph
