@@ -1,0 +1,6 @@
+[submodule "packages/shared"]
+	path = packages/shared
+	url = https://github.com/amondilado/demo-monorepo-shared.git
+[submodule "packages/project"]
+	path = packages/project
+	url = https://github.com/amondilado/demo-monorepo-project.git
