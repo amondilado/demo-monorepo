@@ -4,12 +4,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {},
   "devDependencies": {
     "lerna": "8.2.3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/amondilado/demo-monorepo.git"
-  }
+  },
+  "packageManager": "yarn@4.1.1"
 }

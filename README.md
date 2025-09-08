@@ -59,23 +59,42 @@ Local path:
 ```
 
 Go back to root and run
+$ yarn install
 $ npm install
 
 ### Commands
 
 Repair after migration - Remove legacy options
+$ yarn dlx lerna repair
 $ npx lerna repair
 
 List packages
+$ yarn dlx lerna list
 $ npx lerna list
 
 Build monorepo
+$ yarn dlx lerna run build
 $ npx lerna run build
 
 Build package only
-$ npx lerna run build --scope=<package>`or`--scope <package> // -> >=v7 syntax
+$ yarn dlx lerna run build --scope shared
+$ npx lerna run build --scope=<package>`or`--scope
+
+```
+ERROR
+➤ YN0000: ┌ Link step
+➤ YN0007: │ nx@npm:20.8.2 [7006a] must be built because it never has been before or the last one failed
+➤ YN0000: └ Completed in 19s 401ms
+➤ YN0000: · Done in 25s 23ms
+
+info cli using local version of lerna
+lerna notice cli v8.2.3
+lerna notice filter including "shared"
+lerna ERR! EFILTER No packages remain after filtering [ 'shared' ]
+```
 
 Clean packages node_modules
+$ yarn dlx lerna clean
 $ npx lerna clean
 
 # Nx
